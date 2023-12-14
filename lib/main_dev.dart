@@ -1,6 +1,11 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Khởi tạo các dependency module
+  Core.init();
   runApp(const MyApp());
 }
 
