@@ -35,6 +35,8 @@ dependencies:
 
   core:
     path: core
+  presentation:
+    path: presentation
 
 dev_dependencies:
   flutter_test:

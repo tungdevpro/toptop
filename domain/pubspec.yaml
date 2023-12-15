@@ -2,6 +2,7 @@ name: domain
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
+publish_to: none
 
 environment:
   sdk: '>=3.1.3 <4.0.0'
@@ -20,7 +21,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
   build_runner:
-  auto_route_generator:
   injectable_generator:
 
 # For information on the generic Dart part of this file, see the

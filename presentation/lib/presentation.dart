@@ -1,7 +1,13 @@
 library presentation;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:data/data.dart';
+import 'package:domain/domain.dart';
+import 'package:presentation/di/locator.dart';
+
+class Presentation {
+  static void init() {
+    Data.init();
+    Domain.init();
+    configureDependencies();
+  }
 }

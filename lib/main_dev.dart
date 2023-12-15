@@ -1,12 +1,17 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:presentation/presentation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Khởi tạo các dependency module
   Core.init();
-  runApp(const MyApp());
+  Presentation.init();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
