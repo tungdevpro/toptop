@@ -5,7 +5,7 @@ import '../common/bloc/base_bloc.dart';
 import '../common/bloc/base_event.dart';
 import '../common/bloc/base_state.dart';
 
-abstract class BaseStateView<P extends StatefulWidget, T extends BaseBloc<BaseEvent, BaseState>> extends State<P> {
+abstract class CoreViewState<P extends StatefulWidget, T extends BaseBloc<BaseEvent, BaseState>> extends State<P> {
   T? _bloc;
 
   T get bloc => _bloc!;
