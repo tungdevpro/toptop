@@ -1,3 +1,6 @@
+import 'package:core/di/locator.dart';
+import 'package:core/service/app_loading.dart';
+import 'package:core/service/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/common/routes/routes.dart';
 import 'package:presentation/common/themes/theme_manager.dart';
@@ -8,6 +11,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: locator<AppNavigator>().navigatorKey,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.light,
@@ -15,6 +19,7 @@ class Application extends StatelessWidget {
       darkTheme: ThemeManager.dark,
       onGenerateRoute: Routes.generateRoutes,
       initialRoute: PATHS.home.route(),
+      builder: locator<AppLoading>().init(),
     );
   }
 }

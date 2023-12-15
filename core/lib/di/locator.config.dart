@@ -11,9 +11,10 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../service/app_navigator.dart' as _i3;
-import '../service/snackbar_service.dart' as _i4;
-import '../service/toast_service.dart' as _i5;
+import '../service/app_loading.dart' as _i3;
+import '../service/app_navigator.dart' as _i4;
+import '../service/snackbar_service.dart' as _i5;
+import '../service/toast_service.dart' as _i6;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -26,9 +27,10 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i3.AppNavigator>(() => _i3.AppNavigator());
-    gh.lazySingleton<_i4.SnackbarService>(() => _i4.SnackbarService());
-    gh.lazySingleton<_i5.ToastService>(() => _i5.ToastService());
+    gh.lazySingleton<_i3.AppLoading>(() => _i3.AppLoading());
+    gh.lazySingleton<_i4.AppNavigator>(() => _i4.AppNavigator());
+    gh.lazySingleton<_i5.SnackbarService>(() => _i5.SnackbarService());
+    gh.lazySingleton<_i6.ToastService>(() => _i6.ToastService());
     return this;
   }
 }
