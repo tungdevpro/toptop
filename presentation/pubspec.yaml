@@ -22,6 +22,13 @@ dependencies:
   # for validator
   formz: ^0.6.1
 
+  # for widget
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.0
+
+  # for media
+  video_player: ^2.8.1
+
   core:
     path: ../core
   domain:
