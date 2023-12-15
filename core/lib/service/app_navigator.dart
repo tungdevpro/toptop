@@ -14,13 +14,13 @@ class AppNavigator {
 
   void setContext(BuildContext context) => _context = context;
 
-  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static GlobalKey<NavigatorState>? nestedNavigatorKey;
 
-  static BuildContext get currentContext => nestedNavigatorKey?.currentContext ?? navigatorKey.currentContext!;
+  BuildContext get currentContext => nestedNavigatorKey?.currentContext ?? navigatorKey.currentContext!;
 
-  static BuildContext get rootNavigatorContext => navigatorKey.currentContext!;
+  BuildContext get rootNavigatorContext => navigatorKey.currentContext!;
 
   Future<R?> push<R>(Route<R> route, {bool useRoot = false}) async {
     return _navigator(_context, useRoot: useRoot).push(route);
@@ -53,7 +53,8 @@ class AppNavigator {
 
 NavigatorState _navigator(BuildContext? context, {bool useRoot = false}) {
   assert(!(useRoot && (context != null)), "only (useRoot = true) or (context != null) can be specified, not both");
-  final rootState = AppNavigator.navigatorKey.currentState;
+  final rootState = AppNavigator().navigatorKey.currentState;
+  print('rootState------> ${rootState.hashCode}');
   if (useRoot) return rootState!;
 
   return context != null ? Navigator.of(context) : (AppNavigator.nestedNavigatorKey?.currentState ?? rootState!);

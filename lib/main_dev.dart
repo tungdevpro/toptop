@@ -11,6 +11,8 @@ void main() async {
   Core.init();
   Presentation.init();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
-    runApp(const Application());
+    runApp(GlobalConfiguration.wrap(
+      const Application(),
+    ));
   });
 }
