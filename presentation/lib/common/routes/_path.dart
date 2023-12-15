@@ -9,7 +9,7 @@ const pathToString = <PATHS, String>{
   PATHS.login: '/login',
 };
 
-extension on PATHS {
+extension PATHSExts on PATHS {
   String route() {
     return pathToString[this]!;
   }
