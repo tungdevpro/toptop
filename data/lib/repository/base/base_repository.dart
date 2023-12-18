@@ -12,7 +12,7 @@ typedef SaveResult<Data> = Future Function(Data? data);
 abstract class BaseRepository {
   final _logger = Logger();
 
-  Future<Result<Model>> safeApiCall<Data, Model>(
+  Future<Result<Model>> apiCall<Data, Model>(
     Future<ApiResponse<Data>> call, {
     required ResponseToModelMapper<Data, Model> mapper,
     SaveResult<Data?>? saveResult,
