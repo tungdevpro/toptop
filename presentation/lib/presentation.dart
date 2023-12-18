@@ -20,7 +20,7 @@ class Presentation {
 }
 
 abstract class GlobalConfiguration {
-  static String get initRoute => PATHS.main.route();
+  static String get initRoute => PATHS.login.route();
 
   static Widget wrap(
     Widget child, {

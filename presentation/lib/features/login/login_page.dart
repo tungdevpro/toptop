@@ -15,6 +15,13 @@ class _LoginPageState extends CoreViewState<LoginPage, LoginBloc> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    print('object');
+    return Scaffold(
+      body: ListView(
+        children: [
+          Text('data--- ${bloc}'),
+        ],
+      ),
+    );
   }
 }

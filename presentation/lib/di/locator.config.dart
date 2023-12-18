@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:domain/usecase/login/login_use_case.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -28,7 +29,7 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.factory<_i3.FeedBloc>(() => _i3.FeedBloc());
     gh.factory<_i4.HomeBloc>(() => _i4.HomeBloc());
-    gh.factory<_i5.LoginBloc>(() => _i5.LoginBloc());
+    gh.factory<_i5.LoginBloc>(() => _i5.LoginBloc(gh<_i6.LoginUseCase>()));
     return this;
   }
 }
