@@ -8,8 +8,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:domain/usecase/login/login_use_case.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
+
+import '../features/feed/bloc/feed_bloc.dart' as _i3;
+import '../features/home/bloc/home_bloc.dart' as _i4;
+import '../features/login/bloc/login_bloc.dart' as _i5;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -17,11 +22,14 @@ extension GetItInjectableX on _i1.GetIt {
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,
   }) {
-    _i2.GetItHelper(
+    final gh = _i2.GetItHelper(
       this,
       environment,
       environmentFilter,
     );
+    gh.factory<_i3.FeedBloc>(() => _i3.FeedBloc());
+    gh.factory<_i4.HomeBloc>(() => _i4.HomeBloc());
+    gh.factory<_i5.LoginBloc>(() => _i5.LoginBloc(gh<_i6.LoginUseCase>()));
     return this;
   }
 }

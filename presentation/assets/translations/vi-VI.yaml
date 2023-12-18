@@ -1,2 +1,8 @@
 base:
   account: Tài khoản
+
+nav:
+  home: Trang chủ
+  camera: Camera
+  message: Tin nhắn
+  profile: Tài khoản

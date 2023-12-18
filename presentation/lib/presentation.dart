@@ -7,6 +7,7 @@ import 'package:easy_localization_loader/easy_localization_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:presentation/common/constants/app_configs.dart';
+import 'package:presentation/common/routes/routes.dart';
 import 'package:presentation/di/locator.dart';
 
 class Presentation {
@@ -18,7 +19,9 @@ class Presentation {
   }
 }
 
-class GlobalConfiguration {
+abstract class GlobalConfiguration {
+  static String get initRoute => PATHS.login.route();
+
   static Widget wrap(
     Widget child, {
     Locale? fallbackLocale,

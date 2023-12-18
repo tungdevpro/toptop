@@ -4,6 +4,7 @@ import 'package:core/service/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/common/routes/routes.dart';
 import 'package:presentation/common/themes/theme_manager.dart';
+import 'package:presentation/presentation.dart';
 
 class Application extends StatelessWidget {
   const Application({super.key});
@@ -18,7 +19,7 @@ class Application extends StatelessWidget {
       themeMode: ThemeManager.mode,
       darkTheme: ThemeManager.dark,
       onGenerateRoute: Routes.generateRoutes,
-      initialRoute: PATHS.home.route(),
+      initialRoute: GlobalConfiguration.initRoute,
       builder: locator<AppLoading>().init(),
     );
   }
