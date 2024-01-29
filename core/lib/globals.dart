@@ -1,0 +1,1 @@
+enum LoginOptions { hasRequired, none }
