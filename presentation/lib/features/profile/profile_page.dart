@@ -1,6 +1,8 @@
 import 'package:presentation/features/profile/bloc/profile_bloc.dart';
 import 'package:presentation/import.dart';
 
+import '../../common/widgets/app_header.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -16,7 +18,9 @@ class _ProfilePageState extends CoreViewState<ProfilePage, ProfileBloc> {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: bloc,
-      child: Scaffold(),
+      child: Scaffold(
+        appBar: AppHeader(text: 'Profile', leadingIcon: LeadingIcon.none, leadingWidth: 0),
+      ),
     );
   }
 }

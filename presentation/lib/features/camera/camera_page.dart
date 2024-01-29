@@ -1,5 +1,6 @@
 import 'package:presentation/import.dart';
 
+import '../../common/widgets/app_header.dart';
 import 'bloc/camera_bloc.dart';
 
 class CameraPage extends StatefulWidget {
@@ -17,7 +18,9 @@ class _CameraPageState extends CoreViewState<CameraPage, CameraBloc> {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: bloc,
-      child: Scaffold(),
+      child: Scaffold(
+        appBar: AppHeader(text: 'Camera', leadingIcon: LeadingIcon.none, leadingWidth: 0),
+      ),
     );
   }
 }

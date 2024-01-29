@@ -16,15 +16,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppHeader(text: 'Home', leadingIcon: LeadingIcon.none, leadingWidth: 0),
-      body: Column(
-        children: [
-          Text("data"),
-          CustomButton(
-            onPressed: () {},
-            title: Text("data"),
-          )
-        ],
-      ),
     );
   }
 }
