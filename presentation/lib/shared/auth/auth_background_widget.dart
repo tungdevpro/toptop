@@ -50,7 +50,6 @@ class AuthBackgroundWidget extends StatelessWidget {
                                   color: AppColors.title2,
                                   fontSize: AppSizings.t2Lg,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: AppTypography.rebondGrotesque,
                                 ),
                               ),
                               if (subTitle != null)

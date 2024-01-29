@@ -89,25 +89,25 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Inter
-      fonts:
-        - asset: assets/fonts/inter/Inter-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/inter/Inter-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/inter/Inter-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/inter/Inter-Bold.ttf
-          weight: 700
-    - family: RebondGrotesque
-      fonts:
-        - asset: assets/fonts/rebond/Rebond_Grotesque.otf
-          weight: 400
-        - asset: assets/fonts/rebond/Rebond_Grotesque-Medium.otf
-          weight: 500
-        - asset: assets/fonts/rebond/Rebond_Grotesque-Bold.otf
-          weight: 600
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/inter/Inter-Regular.ttf
+  #         weight: 400
+  #       - asset: assets/fonts/inter/Inter-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/inter/Inter-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/inter/Inter-Bold.ttf
+  #         weight: 700
+  #   - family: RebondGrotesque
+  #     fonts:
+  #       - asset: assets/fonts/rebond/Rebond_Grotesque.otf
+  #         weight: 400
+  #       - asset: assets/fonts/rebond/Rebond_Grotesque-Medium.otf
+  #         weight: 500
+  #       - asset: assets/fonts/rebond/Rebond_Grotesque-Bold.otf
+  #         weight: 600
 
   #   - family: Schyler
   #     fonts:
