@@ -122,3 +122,7 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+  # module:
+  #   androidX: true
+  #   androidPackage: com.yh.base.presentation
+  #   iosBundleIdentifier: com.yh.base.presentation
