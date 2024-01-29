@@ -1,9 +1,6 @@
-import 'package:core/service/app_navigator.dart';
-import 'package:presentation/features/home/home.dart';
-import 'package:presentation/features/login/login.dart';
+import 'package:presentation/features/main/main_page.dart';
 import 'package:presentation/import.dart';
 
-import '../../../common/widgets/custom_button.dart';
 import '../../register/register_page.dart';
 
 class SplashContentComp extends StatefulWidget {
@@ -31,8 +28,8 @@ class _SplashContentCompState extends State<SplashContentComp> {
         return AnimatedSwitcher(
           transitionBuilder: _buildTransition,
           duration: const ShortDuration(),
-          child: state.status == AuthStatus.unauthenticated ? const RegisterPage() : _buildBody(),
-          // child: HomePage(),
+          // child: state.status == AuthStatus.unauthenticated ? const RegisterPage() : _buildBody(),
+          child: const MainPage(),
         );
       },
     );

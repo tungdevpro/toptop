@@ -22,10 +22,10 @@ class _MainPageState extends State<MainPage> {
   ];
 
   final navs = [
-    NavItem(icon: AppIcons.icNavHome, name: '', iconSelected: AppIcons.icNavHomeLight),
-    NavItem(icon: AppIcons.icNavCamera, name: '', iconSelected: AppIcons.icNavCameraLight),
-    NavItem(icon: AppIcons.icNavMessage, name: '', iconSelected: AppIcons.icNavMessageLight),
-    NavItem(icon: AppIcons.icNavProfile, name: '', iconSelected: AppIcons.icNavProfileLight),
+    NavItem(icon: AppIcons.icNavHome, name: '', iconSelected: AppIcons.icNavHomeSelected),
+    NavItem(icon: AppIcons.icNavCamera, name: '', iconSelected: AppIcons.icNavCameraSelected),
+    NavItem(icon: AppIcons.icNavMessage, name: '', iconSelected: AppIcons.icNavMessageSelected),
+    NavItem(icon: AppIcons.icNavProfile, name: '', iconSelected: AppIcons.icNavProfileSelected),
   ];
 
   @override
@@ -49,7 +49,10 @@ class _MainPageState extends State<MainPage> {
               .asMap()
               .entries
               .map<BottomNavigationBarItem>(
-                (e) => BottomNavigationBarItem(icon: SvgViewer(index == e.key ? e.value.iconSelected : e.value.icon, width: 18), label: ''),
+                (e) => BottomNavigationBarItem(
+                  icon: SvgViewer(index == e.key ? e.value.iconSelected : e.value.icon),
+                  label: '',
+                ),
               )
               .toList(),
         ),
