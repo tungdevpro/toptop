@@ -190,6 +190,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.2"
+  environment:
+    dependency: "direct main"
+    description:
+      path: environment
+      relative: true
+    source: path
+    version: "0.0.1"
   equatable:
     dependency: transitive
     description:
