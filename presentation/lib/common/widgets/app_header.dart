@@ -1,11 +1,8 @@
-import 'package:core/common/duration_provider.dart';
-import 'package:core/common/extensions/context_ext.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/common/constants/app_sizings.dart';
+import 'package:presentation/import.dart';
 
-import '../constants/app_icons.dart';
+import 'svg_viewer.dart';
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   AppHeader({
@@ -96,7 +93,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               onPressed: onLeadingPressed ?? () => _onPop(context),
               icon: Container(
                 padding: const EdgeInsets.only(left: AppSizings.padding),
-                child: SvgPicture.asset(AppIcons.icBackLeft, fit: BoxFit.scaleDown),
+                child: const SvgViewer(AppIcons.icBackLeft, width: 24),
               ),
             ),
       centerTitle: centerTitle,
@@ -106,7 +103,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         child: titleType == AppBarTitle.text
             ? Text(text ?? '', style: titleTextStyle)
             : titleType == AppBarTitle.logo
-                ? SvgPicture.asset(AppIcons.icBackLeft, width: 24, height: 24)
+                ? const SvgViewer(AppIcons.icBackLeft, width: 24)
                 : null,
       ),
       actions: actions,

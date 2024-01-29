@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/common/constants/app_icons.dart';
-import 'package:presentation/common/widgets/svg_viewer.dart';
 import 'package:presentation/features/home/home.dart';
+
+import '../../common/widgets/svg_viewer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

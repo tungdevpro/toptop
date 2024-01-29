@@ -1,8 +1,39 @@
 base:
   account: Tài khoản
+  term: Điều khoản sử dụng
+  termSub: Bằng việc tiếp tục, bạn đã đồng ý với 
+  confirm: Xác nhận
+  continue: Tiếp tục
 
 nav:
   home: Trang chủ
-  camera: Camera
+  feed: Bảng tin
   message: Tin nhắn
-  profile: Tài khoản
+  profile: Cá nhân
+
+auth:
+  register: Tạo tài khoản
+  email: Email
+  enterEmail: Nhập email của bạn
+  enterOTP: Nhập mã OTP
+  tipOTPSend: Được gửi tới
+  notReceivedOTP: Chưa nhận được mã?
+  resendOTPLater: Gửi lại mã{}
+  OTPConfirm: 'Xác thực'
+  setupUserAndPwd: Thiết lập tên tài khoản và mật khẩu
+  password: Mật khẩu
+  enterPassword: Nhập mật khẩu của bạn
+  confirmPassword: Nhập lại mật khẩu
+
+validator:
+  invalidEmail: Email không đúng định dạng
+  existEmail: Email đã tồn tại trên hệ thống
+  emptyEmail: Vui lòng nhập Email
+  emptyOTP: Vui lòng nhập mã OTP
+  invalidOTP: Mã OTP không đúng
+  expiredOTP: Mã xác thức hết hiệu lực
+  emptyPassword: Vui lòng nhập mật khẩu
+  invalidPassword: Độ dài tối thiểu là 6 kí tự bao gồm chữ cái và số.
+  mismatchPassword: Mật khẩu không trùng khớp
+
+later: sau

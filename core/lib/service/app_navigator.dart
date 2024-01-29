@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -22,24 +23,26 @@ class AppNavigator {
 
   BuildContext get rootNavigatorContext => navigatorKey.currentContext!;
 
-  Future<R?> push<R>(Route<R> route, {bool useRoot = false}) async {
-    return _navigator(_context, useRoot: useRoot).push(route);
+  CupertinoPageRoute<R> _builderCupertinoPageRoute<R>(Widget child) => CupertinoPageRoute<R>(builder: (context) => child);
+
+  Future<R?> push<R>(Widget child, {bool useRoot = false}) async {
+    return _navigator(_context, useRoot: useRoot).push(_builderCupertinoPageRoute<R>(child));
   }
 
   Future<R?> pushNamed<R>(String routeName, {R? arguments, bool useRoot = false}) async {
     return _navigator(_context, useRoot: useRoot).pushNamed(routeName, arguments: arguments);
   }
 
-  Future<R?> pushReplacement<R>(Route<R> route, {bool useRoot = false}) async {
-    return _navigator(_context, useRoot: useRoot).pushReplacement(route);
+  Future<R?> pushReplacement<R>(Widget child, {bool useRoot = false}) async {
+    return _navigator(_context, useRoot: useRoot).pushReplacement(_builderCupertinoPageRoute<R>(child));
   }
 
   Future<R?> pushNamedAndRemoveUntil<R>(String routeName, {R? arguments, bool useRoot = false}) async {
     return _navigator(_context, useRoot: useRoot).pushNamedAndRemoveUntil(routeName, (route) => false, arguments: arguments);
   }
 
-  Future<R?> pushAndRemoveUntilRoot<R>(Route<R> route, {bool useRoot = false}) async {
-    return _navigator(_context, useRoot: useRoot).pushAndRemoveUntil(route, (route) => false);
+  Future<R?> pushAndRemoveUntilRoot<R>(Widget child, {bool useRoot = false}) async {
+    return _navigator(_context, useRoot: useRoot).pushAndRemoveUntil(_builderCupertinoPageRoute<R>(child), (route) => false);
   }
 
   void close() => closeWithResult(null);
@@ -54,7 +57,6 @@ class AppNavigator {
 NavigatorState _navigator(BuildContext? context, {bool useRoot = false}) {
   assert(!(useRoot && (context != null)), "only (useRoot = true) or (context != null) can be specified, not both");
   final rootState = AppNavigator().navigatorKey.currentState;
-  print('rootState------> ${rootState.hashCode}');
   if (useRoot) return rootState!;
 
   return context != null ? Navigator.of(context) : (AppNavigator.nestedNavigatorKey?.currentState ?? rootState!);
@@ -63,11 +65,7 @@ NavigatorState _navigator(BuildContext? context, {bool useRoot = false}) {
 RoutePageBuilder _pageBuilder(Widget page) => (context, animation, secondaryAnimation) => page;
 
 Route<T> noTransitionRoute<T>(Widget page, {int? durationMillis, String? pageName, bool opaque = true}) => PageRouteBuilder<T>(
-      opaque: opaque,
-      transitionDuration: Duration.zero,
-      settings: RouteSettings(name: pageName ?? page.runtimeType.toString()),
-      pageBuilder: _pageBuilder(page),
-    );
+    opaque: opaque, transitionDuration: Duration.zero, settings: RouteSettings(name: pageName ?? page.runtimeType.toString()), pageBuilder: _pageBuilder(page));
 
 Route<T> materialRoute<T>(Widget page, {bool fullScreenDialog = false, String? pageName}) =>
     MaterialPageRoute(builder: (context) => page, settings: RouteSettings(name: pageName ?? page.runtimeType.toString()), fullscreenDialog: fullScreenDialog);

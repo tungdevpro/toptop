@@ -1,20 +1,20 @@
 import 'error_type.dart';
 
 class Result<T> extends SealedResult<T> {
-  bool get isSuccessful => this is Success<T>;
+  bool get isSuccessful => this is AppSuccess<T>;
 }
 
-class Success<T> extends Result<T> {
+class AppSuccess<T> extends Result<T> {
   T? data;
 
-  Success(this.data);
+  AppSuccess(this.data);
 }
 
-class Error<T> extends Result<T> {
+class AppError<T> extends Result<T> {
   ErrorType type;
   String error;
 
-  Error(this.type, this.error);
+  AppError(this.type, this.error);
 }
 
 abstract class SealedResult<T> {
@@ -22,12 +22,12 @@ abstract class SealedResult<T> {
     R Function(T?)? success,
     R Function(ErrorType, String)? error,
   }) {
-    if (this is Success<T?>) {
-      return success?.call(((this as Success).data));
+    if (this is AppSuccess<T?>) {
+      return success?.call(((this as AppSuccess).data));
     }
-    if (this is Error<T>) {
-      return error?.call((this as Error<T>).type, (this as Error<T>).error);
+    if (this is AppError<T>) {
+      return error?.call((this as AppError<T>).type, (this as AppError<T>).error);
     }
-    throw Exception('If you got here, probably you forgot to regenerate the classes? Try running flutter packages pub run build_runner build');
+    throw Exception('An error occurred');
   }
 }

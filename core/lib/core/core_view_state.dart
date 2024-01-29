@@ -14,6 +14,7 @@ abstract class CoreViewState<P extends StatefulWidget, T extends BaseBloc<BaseEv
   void initState() {
     super.initState();
     _bloc = initBloc;
+    _bloc?.setContext(context);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _bloc?.navigator.setContext(context);

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../import.dart';
 
 abstract class ThemeManager {
   const ThemeManager._();
@@ -6,13 +6,18 @@ abstract class ThemeManager {
   static ThemeMode get mode => ThemeMode.light;
 
   static ThemeData get light => ThemeData(
-        fontFamily: 'InterRegular',
-        appBarTheme: const AppBarTheme(elevation: .0, centerTitle: true, backgroundColor: Colors.white),
+        fontFamily: AppTypography.inter,
+        appBarTheme: const AppBarTheme(
+          elevation: .0,
+          centerTitle: false,
+          backgroundColor: Colors.white,
+          titleTextStyle: TextStyle(fontSize: 20, color: Colors.black),
+        ),
         scaffoldBackgroundColor: Colors.white,
       );
 
   static ThemeData get dark => ThemeData(
-        fontFamily: 'InterRegular',
+        fontFamily: AppTypography.inter,
         appBarTheme: const AppBarTheme(elevation: .0, centerTitle: true, backgroundColor: Colors.white),
         scaffoldBackgroundColor: Colors.white,
       );

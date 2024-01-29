@@ -17,6 +17,8 @@ abstract class JsonCodec<T> {
 
 abstract class BaseBloc<T extends BaseEvent, S extends BaseState> extends Bloc<T, S> with WidgetsBindingObserver, RouteAware {
   late bool _isMounted;
+  late BuildContext _context;
+  BuildContext get context => _context;
   dynamic arguments;
   final navigator = locator<AppNavigator>();
 
@@ -29,6 +31,10 @@ abstract class BaseBloc<T extends BaseEvent, S extends BaseState> extends Bloc<T
     checkNetworkConnection();
     listEvent();
     WidgetsBinding.instance.addObserver(this);
+  }
+
+  void setContext(BuildContext ctx) {
+    _context = ctx;
   }
 
   @override
@@ -90,7 +96,9 @@ abstract class BaseBloc<T extends BaseEvent, S extends BaseState> extends Bloc<T
     return cb.fromJson(arguments);
   }
 
+  @protected
   void showLoading() => EasyLoading.show();
 
+  @protected
   void hideLoading() => EasyLoading.dismiss();
 }

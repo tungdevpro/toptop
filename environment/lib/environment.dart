@@ -13,14 +13,16 @@ abstract class AppEnvironment {
 
   static setup(Env env, {bool useApiVersion = false}) {
     _useApiVersion = useApiVersion;
-    headerKey = 'Authorization';
-
     switch (env) {
       case Env.uat:
         {
+          headerKey = 'Authorization';
           model = SettingAppModel(
-            title: 'UAT ',
+            title: 'Dev',
             apiServerUrl: '',
+            apiMapVnpostUrl: "",
+            apiKeyVnpost: "",
+            apiMapVnpostVersion: 1.1,
             webUrl: "",
             clientId: "---",
             clientSecret: "---",
@@ -34,8 +36,9 @@ abstract class AppEnvironment {
         }
       case Env.prod:
         {
+          headerKey = 'Authorization';
           model = SettingAppModel(
-            title: 'Prod',
+            title: '',
             apiServerUrl: "",
             apiMapVnpostUrl: "",
             apiKeyVnpost: "",
@@ -54,7 +57,7 @@ abstract class AppEnvironment {
       default:
         {
           model = SettingAppModel(
-            title: 'Dev',
+            title: 'Dev toptop',
             apiServerUrl: "",
             apiMapVnpostUrl: "",
             apiKeyVnpost: "",

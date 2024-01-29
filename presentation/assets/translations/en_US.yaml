@@ -1,0 +1,8 @@
+base:
+  account: Account
+
+nav:
+  home: Home
+  feed: Feed
+  message: Message
+  profile: Profile

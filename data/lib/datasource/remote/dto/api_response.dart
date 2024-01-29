@@ -1,46 +1,36 @@
 enum CodeApiResponse { success, parseErr, timeout, tokenExprired, unknowErr }
 
-const _mapApiCode = <CodeApiResponse, String>{
-  CodeApiResponse.success: '0',
-  CodeApiResponse.parseErr: '-1',
-  CodeApiResponse.timeout: '-2',
-  CodeApiResponse.unknowErr: '-99',
-  CodeApiResponse.tokenExprired: '401'
+const _mapApiCode = <CodeApiResponse, int>{
+  CodeApiResponse.success: 200,
+  CodeApiResponse.parseErr: -1,
+  CodeApiResponse.timeout: -2,
+  CodeApiResponse.unknowErr: -99,
+  CodeApiResponse.tokenExprired: 401,
 };
 
 extension ApiCodeExts on CodeApiResponse {
-  String code() {
-    return _mapApiCode[this]!;
-  }
+  int code() => _mapApiCode[this]!;
 }
 
 class ApiResponse<T> {
-  int? code;
-  String? message;
-  String? statusCode;
+  String? code;
+  int? status;
+  String? error;
+  List<String>? codes;
   T? data;
 
-  ApiResponse({this.code, this.message, this.statusCode, this.data});
+  ApiResponse({this.code, this.error, this.codes, this.status, this.data});
 
-  bool isSuccess() => CodeApiResponse.success.code() == code;
+  bool isSuccess() => CodeApiResponse.success.code() == status;
 
-  bool isTimeOut() => CodeApiResponse.timeout.code() == code;
+  bool isTimeOut() => CodeApiResponse.timeout.code() == status;
 
-  bool isTokenExprired() => CodeApiResponse.tokenExprired.code() == code;
+  bool isTokenExprired() => CodeApiResponse.tokenExprired.code() == status;
 
-  ApiResponse.fromJson(Map<String, dynamic> json, {T Function(Object? json)? fromJson}) {
+  ApiResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
-    message = json['message'];
-    statusCode = json['status_code'];
-    data = data == null ? null : fromJson?.call(json);
-  }
-
-  Map<String, dynamic> toJson({Object? Function(T value)? toJson}) {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['code'] = code;
-    data['message'] = message;
-    data['status_code'] = statusCode;
-    data['data'] = this.data == null ? null : toJson?.call(this.data as T);
-    return data;
+    error = json['error'];
+    codes = json['codes'];
+    data = (json['data'] != null && json['data'] is Map) ? ((json['data'] as Map).containsKey('item') ? json['data']['item'] : null) : null;
   }
 }

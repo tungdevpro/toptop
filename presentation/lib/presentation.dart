@@ -1,39 +1,48 @@
 library presentation;
 
-import 'package:data/data.dart';
-import 'package:domain/domain.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization_loader/easy_localization_loader.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:presentation/common/constants/app_configs.dart';
-import 'package:presentation/common/routes/routes.dart';
-import 'package:presentation/di/locator.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:permission_lib/permission_lib.dart';
+import 'package:presentation/application.dart';
+import 'package:presentation/common/helpers/custom_easy_localization_yaml.dart';
+import 'package:presentation/import.dart';
 
-class Presentation {
+abstract class Presentation {
+  const Presentation._();
+
   static void init() async {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    await EasyLocalization.ensureInitialized();
+
     Data.init();
     Domain.init();
     configureDependencies();
   }
 }
 
-abstract class GlobalConfiguration {
-  static String get initRoute => PATHS.login.route();
-
-  static Widget wrap(
-    Widget child, {
-    Locale? fallbackLocale,
-    Locale? startLocale,
-  }) {
-    return EasyLocalization(
-      supportedLocales: AppConfigs.supportedLocales,
-      path: AppConfigs.pathTranslations,
-      fallbackLocale: fallbackLocale ?? AppConfigs.fallbackLocale,
-      startLocale: startLocale ?? AppConfigs.fallbackLocale,
-      assetLoader: const YamlAssetLoader(),
-      child: child,
-    );
-  }
+void initApp({Locale? fallbackLocale, Locale? startLocale, List<Locale>? supportedLocales}) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    runApp(EasyLocalization(
+      supportedLocales: supportedLocales ?? AppLangs.supportedLocales,
+      path: AppLangs.unused,
+      fallbackLocale: fallbackLocale ?? AppLangs.fallbackLocale,
+      startLocale: startLocale ?? AppLangs.fallbackLocale,
+      assetLoader: const CustomYamlAssetLoader(directory: AppLangs.path, package: AppConfigs.packageName),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => AuthBloc.to..add(const AuthInitialEvent())),
+          BlocProvider(create: (_) => AppBloc.to..add(AppGetConfigEvent())),
+        ],
+        child: Application(
+          safeCallback: (ctx) => [
+            () => PermissionLib().setup(ctx),
+          ],
+          callInMyApps: [
+            () => PermissionLib().requests([Permission.camera]),
+          ],
+        ),
+      ),
+    ));
+  });
 }

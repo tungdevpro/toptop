@@ -1,6 +1,14 @@
 part of 'routes.dart';
 
-enum PATHS { splash, intro, main, home, login, register, feed }
+enum PATHS {
+  splash,
+  intro,
+  main,
+  home,
+  login,
+  register,
+  feed,
+}
 
 const pathToString = <PATHS, String>{
   PATHS.splash: '/splash',
@@ -8,11 +16,10 @@ const pathToString = <PATHS, String>{
   PATHS.main: '/main',
   PATHS.home: '/home',
   PATHS.login: '/login',
+  PATHS.register: '/register',
   PATHS.feed: '/fedd',
 };
 
 extension PATHSExts on PATHS {
-  String route() {
-    return pathToString[this]!;
-  }
+  String route() => pathToString[this]!;
 }

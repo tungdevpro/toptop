@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../constants/app_configs.dart';
 
 class SvgViewer extends StatelessWidget {
   final String assetName;
@@ -10,12 +12,6 @@ class SvgViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      assetName,
-      package: 'presentation',
-      fit: fit,
-      width: width,
-      height: height,
-    );
+    return SvgPicture.asset(assetName, package: AppConfigs.packageName, fit: fit, width: width, height: height);
   }
 }

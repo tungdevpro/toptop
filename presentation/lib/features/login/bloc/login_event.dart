@@ -2,27 +2,27 @@ import 'package:core/common/bloc/base_event.dart';
 
 abstract class LoginEvent extends BaseEvent {}
 
-class LoginEmailChanged extends LoginEvent {
+class LoginEmailChangedEvent extends LoginEvent {
   final String email;
-  LoginEmailChanged(this.email);
+  LoginEmailChangedEvent(this.email);
 
   @override
   List<Object?> get props => [email];
 }
 
-class LoginPasswordChanged extends LoginEvent {
+class LoginPasswordChangedEvent extends LoginEvent {
   final String password;
-  LoginPasswordChanged(this.password);
+  LoginPasswordChangedEvent(this.password);
 
   @override
   List<Object?> get props => [password];
 }
 
-class LoginSubmitted extends LoginEvent {
+class LoginSubmittedEvent extends LoginEvent {
   final String email;
   final String password;
 
-  LoginSubmitted({required this.email, required this.password});
+  LoginSubmittedEvent({required this.email, required this.password});
 
   @override
   List<Object?> get props => [email, password];
