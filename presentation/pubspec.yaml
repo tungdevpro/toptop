@@ -51,6 +51,8 @@ dependencies:
     path: ../environment
   permission_lib:
     path: ../3rd_party/permission_lib
+  firebase_module:
+    path: ../3rd_party/firebase_module
 
 dev_dependencies:
   flutter_test:
