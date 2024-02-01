@@ -19,7 +19,11 @@ abstract class Presentation {
   }
 }
 
-void initApp({Locale? fallbackLocale, Locale? startLocale, List<Locale>? supportedLocales}) {
+void initApp({
+  Locale? fallbackLocale,
+  Locale? startLocale,
+  List<Locale>? supportedLocales,
+}) {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(EasyLocalization(
       supportedLocales: supportedLocales ?? AppLangs.supportedLocales,
