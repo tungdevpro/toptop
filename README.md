@@ -91,29 +91,27 @@ and run:
 flutter packages pub run build_runner build  --delete-conflicting-outputs
 ```
 
-  
 ## Project structure
 
 ```
 project
-├─ data (call to api server)
-│  ├─ datasource
-│  ├─ mapper
-│  ├─ network
-│  └─ repository
-├─ domain (is where the business login is stored)
-│  ├─ model
-│  ├─ repository
-│  └─ usecase
-├─ presentation (is where UI is displayed)
-│  ├─ common
-|  |  └─ constants (is where project configurations such as color and size are stored)
-│  ├─ core
-│  ├─ features
-│  └─ shared
-└─ environment
+├─ data (call to api server)
+│  ├─ datasource
+│  ├─ mapper
+│  ├─ network
+│  └─ repository
+├─ domain (is where the business login is stored)
+│  ├─ model
+│  ├─ repository
+│  └─ usecase
+├─ presentation (is where UI is displayed)
+│  ├─ common
+|  |  └─ constants (is where project configurations such as color and size are stored)
+│  ├─ core
+│  ├─ features
+│  └─ shared
+└─ environment
 ```
-
 
 ## Libraries Used
 - bloc: State management (Quản lý state)
@@ -121,7 +119,51 @@ project
 - get_it: Sử dụng cho Dependency Injection
 - injectable: Generation DI
 - dio: Handle REST API (Xử lý thao tác với api)
+- retrofit: Generator & call api safey (dễ và handle api safety)
+- pretty_dio_logger: show log network one way pretty, easy to read format
 - cached_network_image: Show & caching image from network
 - flutter_svg: An SVG rendering
 - easy_localization: Multi-language support (Đa ngôn ngữ)
 - formz: for validatior form input (chỉ đơn giản là validate và tác các valiate ra một file riêng để dễ quản lý)
+- lottie: Create animation using json (Hiệu ứng animation bằng json)
+- pinput: Pin code input (OTP) text field
+- 3rd_party:
+  - permission_lib: Request access permissions such as camera, notifications (Yêu cầu quyền device)
+  - firebase_module: Handle firebase (authentication, push notification, v.v.v)
+
+## Important Note
+Feature/Screen nào thì tương ứng với tính năng đấy, không lồng ghép các Screen vào trong nhau:
+
+**BAD**
+```
+UI
+└─ Screen_A
+   ├─ A_Page.dart
+   └─ Screen_B
+      └─ B_Page.dart
+```
+
+**GOOD**
+```
+UI
+├─ Screen_A
+│  └─ A_Page.dart
+└─ Screen_B
+   └─ B_Page.dart
+```
+
+Cấu trúc của một màn hình sẽ như sau:
+```
+UI
+└─ Screen_A
+   ├─ bloc
+   │  ├─ A_bloc.dart
+   │  ├─ A_event.dart
+   │  └─ A_state.dart
+   ├─ components
+   │  ├─ widget_1_comp.dart
+   │  ├─ widget_2_comp.dart
+   │  └─ widget_3_comp.dart
+   ├─ A_Page.dart
+   └─ A.dart (optional)
+```
