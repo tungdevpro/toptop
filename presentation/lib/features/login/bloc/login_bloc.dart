@@ -40,12 +40,7 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
     showLoading();
     final result = await _loginUseCase.performLogin(LoginRequestModel(email: event.email, password: event.password));
     hideLoading();
-    print('result---> ${(result)}');
-
-    if (!result.isSuccessful) {
-      print('result---> ${(result as AppError<LoginModel>).type}');
-      return;
-    }
+    result.when();
   }
 
   @override

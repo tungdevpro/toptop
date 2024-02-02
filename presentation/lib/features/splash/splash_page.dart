@@ -17,7 +17,6 @@ class SplashPage extends StatelessWidget {
           stream: context.watch<AppBloc>().connectivityStream,
           builder: (context, snapshot) {
             final isConnected = [ConnectivityResult.wifi, ConnectivityResult.ethernet, ConnectivityResult.mobile].contains(snapshot.data);
-            print('isConnected---> $isConnected');
             return Stack(
               fit: StackFit.expand,
               children: [

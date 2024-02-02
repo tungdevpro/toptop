@@ -1,12 +1,9 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:domain/common/result.dart';
-import 'package:domain/model/config_model.dart';
 
 import 'package:domain/usecase/config/get_config_app_use_case.dart';
 import 'package:injectable/injectable.dart';
-import 'package:presentation/common/constants/app_key_cache.dart';
 import 'package:presentation/import.dart';
 
 @singleton
@@ -29,8 +26,7 @@ class AppBloc extends Bloc<AppEvent, AppState> implements LibraryInitializer {
       debugPrint('event---> $event');
     });
 
-    final isItro = await CacheManager.get(AppKeyCaches.introOff.path);
-    print('isItro---> $isItro');
+    final _ = await CacheManager.get(AppKeyCaches.introOff.path);
   }
 
   void _onAppGetConfigEvent(AppGetConfigEvent event, Emitter<AppState> emit) async {
@@ -43,9 +39,7 @@ class AppBloc extends Bloc<AppEvent, AppState> implements LibraryInitializer {
   }
 
   // Handle error when cant access network
-  void _onAppRetryConnectNetworkEvent(AppRetryConnectNetworkEvent event, Emitter<AppState> emit) {
-    print('object....kekek');
-  }
+  void _onAppRetryConnectNetworkEvent(AppRetryConnectNetworkEvent event, Emitter<AppState> emit) {}
 
   @override
   Future<void> close() {

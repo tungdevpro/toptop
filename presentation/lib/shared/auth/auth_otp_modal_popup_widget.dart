@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
-import 'package:presentation/common/constants/app_images.dart';
-import 'package:presentation/common/constants/app_sizings.dart';
 import 'package:presentation/common/widgets/custom_button.dart';
 import 'package:presentation/common/widgets/image_viewer.dart';
 import 'package:presentation/import.dart';

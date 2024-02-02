@@ -1,5 +1,4 @@
 import 'package:domain/model/user_model.dart';
-import 'package:presentation/common/constants/app_key_cache.dart';
 import 'package:presentation/import.dart';
 
 class AuthCacheManager {

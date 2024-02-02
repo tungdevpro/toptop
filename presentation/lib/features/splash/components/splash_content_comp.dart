@@ -1,8 +1,6 @@
 import 'package:presentation/features/main/main_page.dart';
 import 'package:presentation/import.dart';
 
-import '../../register/register_page.dart';
-
 class SplashContentComp extends StatefulWidget {
   const SplashContentComp({super.key});
 
