@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
 
   var items = <Widget>[
     const HomePage(),
-    const CameraPage(),
+    const CameraPage(wantKeepAlive: true),
     Container(),
     const ProfilePage(),
   ];
