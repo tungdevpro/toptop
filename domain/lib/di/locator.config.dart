@@ -29,7 +29,8 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i3.GetConfigAppUseCase>(() => _i4.GetConfigAppUseCaseImpl(gh<_i5.AppRepository>()));
+    gh.factory<_i3.GetConfigAppUseCase>(
+        () => _i4.GetConfigAppUseCaseImpl(gh<_i5.ConfigRepository>()));
     gh.factory<_i6.LoginUseCase>(
       () => _i7.LoginUseCaseImpl(gh<_i8.LoginRepository>()),
       instanceName: 'LoginUseCaseImpl',

@@ -1,11 +1,7 @@
-import 'dart:async';
-
-import 'package:bloc/src/bloc.dart';
-import 'package:core/common/bloc/base_bloc.dart';
-import 'package:core/di/locator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:presentation/features/home/bloc/home_event.dart';
 import 'package:presentation/features/home/bloc/home_state.dart';
+import 'package:presentation/import.dart';
 
 @Injectable()
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {

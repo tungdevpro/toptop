@@ -1,7 +1,6 @@
 import 'package:core/service/app_loading.dart';
 import 'package:core/service/app_navigator.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:environment/environment.dart';
 import 'package:presentation/common/themes/theme_manager.dart';
 import 'package:presentation/import.dart';
 

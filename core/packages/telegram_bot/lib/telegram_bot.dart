@@ -2,8 +2,6 @@ library telegram_bot;
 
 import 'dart:math';
 
-import 'package:flutter/src/foundation/assertions.dart';
-import 'package:flutter/widgets.dart';
 import 'package:telegram_bot/constants.dart' as constants;
 import 'package:telegram_bot/telegram_bot_interface.dart';
 import 'package:http/http.dart' as http;

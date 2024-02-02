@@ -120,6 +120,7 @@ project
 - injectable: Generation DI
 - dio: Handle REST API (Xử lý thao tác với api)
 - retrofit: Generator & call api safey (dễ và handle api safety)
+- logger:  prints beautiful logs
 - pretty_dio_logger: show log network one way pretty, easy to read format
 - cached_network_image: Show & caching image from network
 - flutter_svg: An SVG rendering

@@ -1,6 +1,4 @@
-import 'package:core/core/core.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:presentation/core/app/app_bloc.dart';
 import 'package:presentation/import.dart';
 import 'package:presentation/features/login/bloc/login_bloc.dart';
 

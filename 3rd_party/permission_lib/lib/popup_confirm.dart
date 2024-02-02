@@ -2,9 +2,8 @@ part of 'permission_lib.dart';
 
 class _PopupConfirm extends StatelessWidget {
   final String content;
-  final bool hasMarginBottom;
 
-  const _PopupConfirm({Key? key, required this.content, this.hasMarginBottom = true}) : super(key: key);
+  const _PopupConfirm({Key? key, required this.content}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class _PopupConfirm extends StatelessWidget {
                       )),
                     ],
                   ),
-                  if (hasMarginBottom) const SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
