@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:core/common/bloc/base_bloc.dart';
 import 'package:core/di/locator.dart';
-import 'package:domain/common/result.dart';
-import 'package:domain/model/login_model.dart';
 import 'package:domain/model/login_request_model.dart';
 import 'package:domain/usecase/login/login_use_case.dart';
 import 'package:flutter/cupertino.dart';

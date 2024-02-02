@@ -6,11 +6,11 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: GetConfigAppUseCase)
 class GetConfigAppUseCaseImpl extends GetConfigAppUseCase {
-  final AppRepository repository;
+  final ConfigRepository repository;
   GetConfigAppUseCaseImpl(this.repository);
 
   @override
   Future<Result<ConfigModel>> getConfig() async {
-    return repository.getConfig();
+    return repository.fetch();
   }
 }
