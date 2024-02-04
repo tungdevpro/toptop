@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAEtnR6DGxChLX13dmyIU8t6H12Yb_lzV4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>807600573833</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yh.toptop.dev</string>
+	<key>PROJECT_ID</key>
+	<string>toptop-59ef2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toptop-59ef2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:807600573833:ios:f8d67b9e9c5383c3936558</string>
+</dict>
+</plist>

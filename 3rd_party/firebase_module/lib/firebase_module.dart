@@ -30,6 +30,7 @@ class FirebaseModule {
       final result = await FirebaseMessaging.instance.getToken();
       return result ?? '';
     } catch (e) {
+      print('e... $e');
       return '';
     }
   }
