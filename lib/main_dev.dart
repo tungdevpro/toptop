@@ -14,7 +14,7 @@ void main() async {
     AppEnvironment.setup(Env.dev);
     Presentation.init();
     FlutterError.onError = (FlutterErrorDetails details) => Core.onError(details);
-    initApp();
+    // initApp();
   }, _onError);
 }
 

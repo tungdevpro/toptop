@@ -48,10 +48,10 @@ class _ApplicationState extends State<Application> {
   }
 
   void _onAddPostFrameCallback(_) {
+    FirebaseModule().requestPermission();
+
     PermissionLib()
       ..setup(context)
       ..requests([Permission.camera]);
-
-    FirebaseModule().requestPermission();
   }
 }

@@ -11,13 +11,14 @@ abstract class Presentation {
   const Presentation._();
 
   static void init() async {
-    await FirebaseModule().initialize();
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     await EasyLocalization.ensureInitialized();
+    await FirebaseModule().initialize();
 
     Data.init();
     Domain.init();
     configureDependencies();
+    initApp();
   }
 }
 
