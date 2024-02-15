@@ -12,7 +12,7 @@ import 'package:domain/repository/app_repository.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../datasource/remote/service/api_client.dart' as _i3;
+import '../datasource/remote/api_client.dart' as _i3;
 import '../network/dio_client.dart' as _i6;
 import '../repository/config_repository_impl.dart' as _i5;
 
