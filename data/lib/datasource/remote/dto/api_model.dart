@@ -31,14 +31,6 @@ class ApiModel<T> {
 
   bool isTokenExprired() => CodeApiModel.tokenExprired.code() == status;
 
-  // ApiModel.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) {
-  //   status = json['status'];
-  //   code = json['code'];
-  //   error = json['error'];
-  //   codes = json['codes'];
-  //   data = (json['data'] != null && json['data'] is Map) ? ((json['data'] as Map).containsKey('item') ? fromJsonT(json['data']['item']) : null) : null;
-  // }
-
   factory ApiModel.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) => _$ApiModelFromJson<T>(json, fromJsonT);
 
   Map<String, dynamic> toJson(Object Function(T) toJsonT) => _$ApiModelToJson<T>(this, toJsonT);
