@@ -4,18 +4,20 @@ import 'package:presentation/import.dart';
 import '../../common/widgets/app_header.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  final bool wantKeepAlive;
+  const ProfilePage({super.key, this.wantKeepAlive = false});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends CoreViewState<ProfilePage, ProfileBloc> {
+class _ProfilePageState extends CoreViewState<ProfilePage, ProfileBloc> with AutomaticKeepAliveClientMixin<ProfilePage> {
   @override
   ProfileBloc get initBloc => ProfileBloc.to;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return BlocProvider.value(
       value: bloc,
       child: Scaffold(
@@ -23,4 +25,7 @@ class _ProfilePageState extends CoreViewState<ProfilePage, ProfileBloc> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => widget.wantKeepAlive;
 }

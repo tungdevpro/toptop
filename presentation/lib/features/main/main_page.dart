@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const CameraPage(wantKeepAlive: true),
     Container(),
-    const ProfilePage(),
+    const ProfilePage(wantKeepAlive: true),
   ];
 
   final navs = [
@@ -52,6 +52,7 @@ class _MainPageState extends State<MainPage> {
           onTap: _onChangeIndexNavigation,
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          enableFeedback: true,
           backgroundColor: Colors.white,
           elevation: .0,
           currentIndex: index,
