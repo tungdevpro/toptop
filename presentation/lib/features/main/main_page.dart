@@ -4,8 +4,6 @@ import 'package:presentation/features/camera/camera_page.dart';
 import 'package:presentation/features/home/home.dart';
 import 'package:presentation/features/profile/profile_page.dart';
 
-import '../../common/widgets/svg_viewer.dart';
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -46,30 +44,30 @@ class _MainPageState extends State<MainPage> {
         physics: const NeverScrollableScrollPhysics(),
         children: items,
       ),
-      bottomNavigationBar: ValueListenableBuilder<int>(
-        valueListenable: currentIndex,
-        builder: (context, index, child) => BottomNavigationBar(
-          onTap: _onChangeIndexNavigation,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          enableFeedback: true,
-          backgroundColor: Colors.white,
-          elevation: .0,
-          currentIndex: index,
-          type: BottomNavigationBarType.fixed,
-          fixedColor: Colors.blue,
-          items: navs
-              .asMap()
-              .entries
-              .map<BottomNavigationBarItem>(
-                (e) => BottomNavigationBarItem(
-                  icon: SvgViewer(index == e.key ? e.value.iconSelected : e.value.icon),
-                  label: '',
-                ),
-              )
-              .toList(),
-        ),
-      ),
+      // bottomNavigationBar: ValueListenableBuilder<int>(
+      //   valueListenable: currentIndex,
+      //   builder: (context, index, child) => BottomNavigationBar(
+      //     onTap: _onChangeIndexNavigation,
+      //     showSelectedLabels: false,
+      //     showUnselectedLabels: false,
+      //     enableFeedback: true,
+      //     backgroundColor: Colors.white,
+      //     elevation: .0,
+      //     currentIndex: index,
+      //     type: BottomNavigationBarType.fixed,
+      //     fixedColor: Colors.blue,
+      //     items: navs
+      //         .asMap()
+      //         .entries
+      //         .map<BottomNavigationBarItem>(
+      //           (e) => BottomNavigationBarItem(
+      //             icon: SvgViewer(index == e.key ? e.value.iconSelected : e.value.icon),
+      //             label: '',
+      //           ),
+      //         )
+      //         .toList(),
+      //   ),
+      // ),
     );
   }
 

@@ -2,6 +2,7 @@ library presentation;
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_module/firebase_module.dart';
+// import 'package:firebase_module/firebase_module.dart';
 import 'package:flutter/services.dart';
 import 'package:presentation/application.dart';
 import 'package:presentation/common/helpers/custom_easy_localization_yaml.dart';
@@ -18,11 +19,11 @@ abstract class Presentation {
     Data.init();
     Domain.init();
     configureDependencies();
-    initApp();
+    _initApp();
   }
 }
 
-void initApp() {
+void _initApp() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(EasyLocalization(
       supportedLocales: AppLangs.supportedLocales,
@@ -33,7 +34,10 @@ void initApp() {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => AuthBloc.to..add(const AuthInitialEvent())),
-          BlocProvider(create: (_) => AppBloc.to..add(AppGetConfigEvent())),
+          BlocProvider(
+              create: (_) => AppBloc.to
+                ..add(AppCheckSkipIntroEvent())
+                ..add(AppGetConfigEvent())),
         ],
         child: const Application(),
       ),

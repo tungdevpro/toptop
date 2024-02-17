@@ -13,6 +13,7 @@ class AppBloc extends Bloc<AppEvent, AppState> implements LibraryInitializer {
   AppBloc(this._getConfigAppUseCase, this.authBloc) : super(const AppState(hasCheckNetworkGlobal: false)) {
     on<AppGetConfigEvent>(_onAppGetConfigEvent);
     on<AppRetryConnectNetworkEvent>(_onAppRetryConnectNetworkEvent);
+    on<AppCheckSkipIntroEvent>(_onAppCheckSkipIntroEvent);
   }
   late Stream<ConnectivityResult> connectivityStream;
   late StreamSubscription<AuthState> _authBlocSubscription;
@@ -22,11 +23,7 @@ class AppBloc extends Bloc<AppEvent, AppState> implements LibraryInitializer {
   @override
   Future<void> init() async {
     connectivityStream = Connectivity().onConnectivityChanged;
-    _authBlocSubscription = authBloc.stream.listen((event) {
-      debugPrint('event---> $event');
-    });
-
-    final _ = await CacheManager.get(AppKeyCaches.introOff.path);
+    _authBlocSubscription = authBloc.stream.listen((event) {});
   }
 
   void _onAppGetConfigEvent(AppGetConfigEvent event, Emitter<AppState> emit) async {
@@ -45,5 +42,12 @@ class AppBloc extends Bloc<AppEvent, AppState> implements LibraryInitializer {
   Future<void> close() {
     _authBlocSubscription.cancel();
     return super.close();
+  }
+
+  var flag = false;
+
+  void _onAppCheckSkipIntroEvent(AppCheckSkipIntroEvent event, Emitter<AppState> emit) async {
+    final result = await CacheManager.get(AppKeyCaches.introOff.path);
+    emit(state.copyWith(hasSkipIntro: result ?? false));
   }
 }

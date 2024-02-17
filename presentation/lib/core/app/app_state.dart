@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 class AppState extends Equatable {
   final ConfigModel? config;
   final bool hasCheckNetworkGlobal;
-  // final String? token;
   final bool isDarkTheme;
   final bool hasSkipIntro;
 
@@ -14,7 +13,6 @@ class AppState extends Equatable {
     return AppState(
       config: config ?? this.config,
       hasCheckNetworkGlobal: hasCheckNetworkGlobal ?? this.hasCheckNetworkGlobal,
-      // token: token ?? this.token,
       isDarkTheme: isDarkTheme ?? this.isDarkTheme,
       hasSkipIntro: hasSkipIntro ?? this.hasSkipIntro,
     );

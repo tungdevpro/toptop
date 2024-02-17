@@ -7,6 +7,11 @@ class AppGetConfigEvent extends AppEvent {
   List<Object?> get props => [];
 }
 
+class AppCheckSkipIntroEvent extends AppEvent {
+  @override
+  List<Object?> get props => [];
+}
+
 class AppRetryConnectNetworkEvent extends AppEvent {
   @override
   List<Object?> get props => [];
